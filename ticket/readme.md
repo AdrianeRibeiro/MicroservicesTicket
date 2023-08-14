@@ -1,0 +1,3 @@
+- API não faz parte da aplicação. É cliente da aplicação.
+- npx jest
+- npx nodemon src/main.ts

@@ -1,10 +1,5 @@
-import Ticket from "../../domain/entities/Ticket"
-import TicketReserved from "../../domain/event/TicketReserved";
-import Queue from "../../infra/queue/Queue";
 import Registry from "../../infra/registry/Registry"
-import EventRepository from "../repository/EventRepository";
 import TicketRepository from "../repository/TicketRepository"
-import ProcessPayment from "./ProcessPayment";
 
 export default class ApproveTicket {
   ticketRepository: TicketRepository;

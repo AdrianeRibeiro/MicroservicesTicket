@@ -4,18 +4,15 @@ import Queue from "../../infra/queue/Queue";
 import Registry from "../../infra/registry/Registry"
 import EventRepository from "../repository/EventRepository";
 import TicketRepository from "../repository/TicketRepository"
-import ProcessPayment from "./ProcessPayment";
 
 export default class PurchaseTicket {
   eventRepository: EventRepository;
   ticketRepository: TicketRepository;
-  processPayment: ProcessPayment;
   queue: Queue;
 
   constructor(readonly registry: Registry) {
     this.eventRepository = registry.inject("eventRepository")
     this.ticketRepository = registry.inject("ticketRepository")
-    this.processPayment = registry.inject("processPayment")
     this.queue = registry.inject("queue")
   }
 
