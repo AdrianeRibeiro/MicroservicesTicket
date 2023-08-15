@@ -7,7 +7,7 @@ test("Deve comprar im ingresso", async function() {
     creditCardToken: "987654321"
   }
   
-  const response = await axios.post('http://localhost:3000/purchase_ticket', input)
+  const response = await axios.post('http://localhost:3001/purchase_ticket', input)
   const output = response.data
 
   expect(output.ticketId).toBeDefined()

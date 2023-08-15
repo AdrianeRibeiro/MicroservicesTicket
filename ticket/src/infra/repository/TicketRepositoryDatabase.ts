@@ -17,11 +17,14 @@ export default class TicketRepositoryDatabase implements TicketRepository {
     await connection.$pool.end()
   }
 
-  async get(ticketId: string): Promise<Ticket> {
+  async get(ticketId: string): Promise<Ticket | void> {
 		const url = 'postgres://postgres:postgres@localhost:5432/fullcycle'
     const connection = pgp()(url)
 		const [ticketData] = await connection.query("select * from fullcycle.ticket where ticket_id = $1", [ticketId]);
 		await connection.$pool.end();
-		return new Ticket(ticketData.ticket_id, ticketData.event_id, ticketData.email, ticketData.status);
+
+    if(ticketData) {
+      return new Ticket(ticketData.ticket_id, ticketData.event_id, ticketData.email, ticketData.status);
+    }
 	}
 }
