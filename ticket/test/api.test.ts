@@ -2,7 +2,7 @@ import axios from "axios"
 
 test("Deve comprar im ingresso", async function() {
   const input = {
-    eventId: "eventId",
+    eventId: "bf6a9b3d-4d5c-4c9d-bf3b-4a091b05dc76",
     email: "john.dow@gmail.com",
     creditCardToken: "987654321"
   }
@@ -11,7 +11,4 @@ test("Deve comprar im ingresso", async function() {
   const output = response.data
 
   expect(output.ticketId).toBeDefined()
-  /*expect(output.tid).toBeDefined()
-  expect(output.status).toBe("approved")
-  expect(output.price).toBe(300)*/
 })

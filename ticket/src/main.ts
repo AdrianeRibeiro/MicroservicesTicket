@@ -28,7 +28,7 @@ async function main() {
     res.json(output)
   })
 
-  app.listen(3000)
+  app.listen(3001)
 }
 
 main()
