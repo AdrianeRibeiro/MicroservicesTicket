@@ -5,7 +5,7 @@ import Event from "../../domain/entities/Event";
 export default class EventRepositoryDatabase implements EventRepository {
 
   async get(eventId: string): Promise<Event> {
-    const url = 'postgres://postgres:123456@localhost:5432/app'
+    const url = 'postgres://postgres:postgres@localhost:5432/fullcycle'
     const connection = pgp()(url)
     const [eventData] = await connection.query("select * from fullcycle.event where event_id = $1", [eventId])
     await connection.$pool.end()

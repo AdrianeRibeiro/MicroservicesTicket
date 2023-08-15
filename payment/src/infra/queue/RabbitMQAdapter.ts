@@ -5,7 +5,7 @@ export default class RabbitMQAdapter implements Queue {
   connection: any
 
   async connect(): Promise<void> {
-    this.connection = await amqplib.connect("amqp://localhost")
+    this.connection = await amqplib.connect("amqp://localhost:5673")
   }
 
   async on(queueName: string, callback: Function): Promise<void> {

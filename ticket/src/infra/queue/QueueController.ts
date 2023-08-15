@@ -4,7 +4,6 @@ import Registry from "../registry/Registry";
 export default class QueueController {
   constructor(readonly registry: Registry) {
     const queue = registry.inject("queue")
-    const processPayment = registry.inject("processPayment")
     const approveTicket = registry.inject("approveTicket")
 
     queue.on("paymentApproved", async function (event: PaymentApproved) {

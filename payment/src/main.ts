@@ -1,4 +1,3 @@
-import express, { Request, Response } from 'express';
 import Registry from './infra/registry/Registry';
 import FakePaymentGateway from './infra/gateway/FakePaymentGateway';
 import TransactionRepositoryDatabase from './infra/repository/TransactionRepositoryDatabase';
@@ -7,9 +6,6 @@ import RabbitMQAdapter from './infra/queue/RabbitMQAdapter';
 import QueueController from './infra/queue/QueueController';
 
 async function main() {
-  //const app = express()
-  //app.use(express.json())
-
   const queue = new RabbitMQAdapter()
   await queue.connect()
 
@@ -20,8 +16,6 @@ async function main() {
   registry.provide("processPayment", new ProcessPayment(registry))
 
   new QueueController(registry)
-
-  //app.listen(3001)
 }
 
 main()
